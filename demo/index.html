@@ -25,6 +25,7 @@
         <template>
           <list-elemnt></list-elemnt>
           <paper-toast id="toast"></paper-toast>
+          <paper-toast id="toast2"></paper-toast>
           <script>
             const element = document.querySelector("list-elemnt");
             element.users =[
@@ -69,6 +70,16 @@
                 data: user
               });
               toast.show();
+
+              element.addEventListener('user-tools',event =>{
+                const tool = event.detail;
+                const toast2 = document.querySelector('#toast2');
+                toast2.image = JSON.stringify({
+                  event: event.type,
+                  data: user
+                });
+                toast2.show();
+              })
             });
           </script>
         </template>
